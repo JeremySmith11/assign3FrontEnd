@@ -85,11 +85,11 @@
   const apiService = new APIService();
 
   export default {
-    name: "InvestmentList",
+    name: "StockList",
     data: () => ({
-      investments: [],
+      stocks: [],
       validUserName: "Guest",
-      investmentSize: 0,
+      stockSize: 0,
       showMsg: '',
       headers: [
         
@@ -119,7 +119,7 @@
       getStocks() {
         apiService.getStockList().then(response => {
           this.stocks = response.data.data;
-          this.stockSize = this.investments.length;
+          this.stockSize = this.stocks.length;
           if (localStorage.getItem("isAuthenticates")
             && JSON.parse(localStorage.getItem("isAuthenticates")) === true) {
             this.validUserName = JSON.parse(localStorage.getItem("log_user"));
@@ -142,7 +142,7 @@
         }
       },
       updateStock(stock) {
-        router.push('/stock-create/' + investment.pk);
+        router.push('/stock-create/' + stock.pk);
       },
       deleteStock(stock) {
         apiService.deleteStock(stock.pk).then(response => {

@@ -90,7 +90,7 @@
     data() {
       return {
         showError: false,
-        investment: {},
+        stock: {},
         pageTitle: "Add New Stock",
         isUpdate: false,
         showMsg: '',
